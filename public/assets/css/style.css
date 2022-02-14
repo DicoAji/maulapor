@@ -1,0 +1,472 @@
+/************ FONT *********/
+@font-face {
+  font-family: "Mochiy";
+  src: url(font/Mochiy_Pop_P_One/MochiyPopPOne-Regular.ttf);
+}
+@font-face {
+  font-family: "CROSSROADSITALIC";
+  src: url(font/CrossroadsItalicPersonalUseRegular-gxa9R.ttf);
+}
+/*********** END FONT **********/
+
+:root {
+  --hitam: #1b1200;
+  --kuning: #f9c259;
+  --pink: #fef4e8;
+}
+/**************** MEDIA QUERY **************/
+/* MIN */
+@media (min-width: 1441px) {
+  nav .nav-item {
+    margin-left: 30px;
+  }
+  .navbar-nav {
+    margin-left: 15px;
+  }
+  nav .nav-link {
+    padding: 30px 15px !important;
+  }
+}
+@media (min-width: 769px) {
+  /* .bg-abu .beranda {
+    height: 600px;
+  } */
+  .laporanheader {
+    border-right: 2px solid black !important;
+  }
+}
+
+/* MAX */
+@media (max-width: 1440px) {
+  nav .logo-nav {
+    margin: 10px 0;
+  }
+  .bg-coklat {
+    height: 790px;
+    background-image: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .alat {
+    margin-top: 30px !important;
+  }
+}
+@media (max-width: 376px) {
+  .kotaklogin {
+    width: 100% !important;
+  }
+}
+/* @media (in-width: 376px) */
+
+/********** CLASS CHEAT *********/
+.kuning {
+  color: var(--kuning) !important;
+}
+.bg-hitam {
+  background-color: var(--hitam);
+}
+.bg-pink {
+  background-color: var(--pink);
+}
+.bg-kuning {
+  background-color: var(--kuning);
+  color: var(--hitam);
+}
+.red {
+  color: red;
+}
+.ungu {
+  color: #5403ff;
+}
+.green {
+  color: rgb(13, 172, 13);
+}
+.hitam {
+  color: var(--hitam) !important;
+}
+
+.bg-coklat {
+  background-image: url("../img/background/bg-coklat.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.tengah {
+  display: flex;
+  justify-content: center;
+}
+/************** BTN **************/
+.btn {
+  border-radius: 0 !important ;
+  font-size: 13px !important;
+}
+.btn-transparant {
+  background-color: transparent;
+  border: 2px solid var(--hitam) !important;
+}
+.btn-transparant:hover {
+  color: var(--kuning) !important;
+  background-color: var(--hitam);
+}
+.btn-hitam {
+  background-color: var(--hitam) !important;
+  color: var(--kuning) !important;
+}
+.btn-hitam:hover {
+  background-color: transparent !important;
+  border: 2px solid var(--hitam) !important;
+  color: var(--hitam) !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Mochiy";
+}
+
+/********** MARGIN ***********/
+.mt10 {
+  margin-top: 10px !important;
+}
+.mt20 {
+  margin-top: 20px !important;
+}
+.mt50 {
+  margin-top: 50px !important;
+}
+.mt100 {
+  margin-top: 100px !important;
+}
+
+.pt100 {
+  padding-top: 100px;
+}
+.pt50 {
+  padding-top: 50px !important;
+}
+.pb100 {
+  padding-bottom: 100px;
+}
+.pb50 {
+  padding-bottom: 50px !important;
+}
+.pb150 {
+  padding-bottom: 150px !important;
+}
+.pt150 {
+  padding-top: 150px !important;
+}
+
+a {
+  text-decoration: none !important;
+  color: var(--kuning);
+}
+
+h1 {
+  font-family: "CROSSROADSITALIC";
+  font-size: 4.6rem !important;
+  margin: 0 !important;
+  line-height: 0.8 !important;
+}
+h2 {
+  font-family: "CROSSROADSITALIC";
+  font-size: 2.5rem !important;
+}
+h3 {
+  font-family: "Mochiy" !important;
+  font-size: 1.3rem !important;
+}
+p {
+  font-size: 0.8rem !important;
+  font-family: "Mochiy" !important;
+  margin: 0 !important;
+}
+
+/* input */
+input,
+textarea {
+  outline: none;
+  border: none;
+  border-bottom: 2px solid var(--hitam);
+  padding: 5px;
+  width: 100%;
+  background-color: transparent;
+}
+
+/************ NAVBAR **********/
+nav .logo-nav {
+  height: 40px !important;
+}
+nav {
+  background-color: var(--hitam);
+  padding: 0 !important;
+  /* Safari */
+  position: sticky;
+  top: 0 !important;
+}
+nav .nav-item {
+  display: flex;
+}
+nav .nav-link {
+  color: var(--kuning);
+  font-size: 0.8rem !important;
+  font-family: "Mochiy" !important;
+}
+nav .nav-item:hover {
+  background-color: var(--kuning);
+}
+nav .nav-item .nav-link:hover {
+  color: var(--hitam) !important;
+}
+
+/************ BERANDA **************/
+.beranda .logoheader {
+  height: 50px;
+}
+.prasasti {
+  background-image: url("../img/pendukung/prasasti.png");
+  background-position: center center;
+  background-size: contain;
+  height: 400px;
+  background-repeat: no-repeat;
+}
+.borobudur {
+  background-image: url("../img/pendukung/borobudur.png");
+  background-size: contain;
+  height: 200px;
+  background-repeat: no-repeat;
+}
+
+.html {
+  background-image: url("../img/tools/html.png");
+}
+.css {
+  background-image: url("../img/tools/css.png");
+}
+.bootstrap {
+  background-image: url("../img/tools/boostraps.png");
+}
+.php {
+  background-image: url("../img/tools/php.png");
+}
+.ci {
+  background-image: url("../img/tools/codeigniter.png");
+}
+.mysql {
+  background-image: url("../img/tools/MySQL.png");
+}
+.js {
+  background-image: url("../img/tools/js.png");
+}
+.figma {
+  background-image: url("../img/tools/figma.png");
+}
+
+.alat {
+  background-size: contain;
+  background-position: center;
+  height: 70px;
+  background-repeat: no-repeat;
+}
+
+/************ footer ***********/
+footer ul li a {
+  color: var(--kuning) !important;
+  font-size: 12px;
+}
+footer ul {
+  display: inline-block;
+  margin-top: 10px;
+}
+footer img {
+  height: 40px;
+}
+footer ul li {
+  display: block;
+}
+
+/*********** pencarian **********/
+.pencarian {
+  border-bottom: 2px solid var(--hitam) !important;
+  width: 200px !important;
+  padding: 8px !important;
+  color: #5e5e5e;
+  outline: none;
+  border: none;
+  background-color: transparent !important;
+}
+.pencarian::-webkit-input-placeholder {
+  color: rgb(151, 151, 151);
+}
+
+.bg-abu-abu {
+  background-image: url("../img/background/bg-abu.png");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* isianlaporkan */
+
+/* patokan background image */
+.isianlaporkan {
+  background-image: url("../img/background/bg-abu.png");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.gambarcari {
+  background-image: url("../img/pendukung/upacara.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 400px;
+}
+
+.isianlaporkan input,
+.isianlaporkan textarea {
+  outline: none;
+  border: none;
+  border-bottom: 2px solid var(--hitam);
+  padding: 5px;
+  width: 100%;
+  background-color: transparent;
+  display: block;
+}
+
+/********* ADMIN ***********/
+/* pakai */
+#wrapper {
+  overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  /* margin-left: -15rem; */
+  transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+/* #page-content-wrapper {
+  min-width: 100vw;
+} */
+
+@media (min-width: 375px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+  .wraper nav {
+    width: 900px !important;
+  }
+}
+
+.admin .logo {
+  height: 30px;
+}
+.admin a {
+  color: var(--hitam);
+}
+
+.admin .menu:hover {
+  background-color: var(--hitam);
+}
+.admin .menu:hover a {
+  color: var(--kuning);
+}
+.admin .border-hitam {
+  border-top: 2px solid var(--hitam);
+  border-bottom: 2px solid var(--hitam);
+}
+.admin i {
+  margin-right: 10px;
+}
+
+.wrap nav i {
+  font-size: 30px !important;
+  color: var(--kuning);
+}
+
+.borderkanan {
+  border-right: 2px solid var(--hitam);
+}
+
+.badge {
+  color: #f9c259 !;
+}
+
+input[type="date"]:in-range::-webkit-datetime-edit-year-field,
+input[type="date"]:in-range::-webkit-datetime-edit-month-field,
+input[type="date"]:in-range::-webkit-datetime-edit-day-field {
+  color: transparent;
+}
+
+.fa-arrow-right:hover,
+.fa-arrow-right::after,
+.fa-arrow-right:active {
+  -webkit-transform: translateX(10px);
+  transform: translateX(10px);
+}
+
+.radio-toolbar {
+  margin: 10px;
+}
+
+.radio-toolbar input[type="radio"] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.radio-toolbar label {
+  display: inline-block;
+
+  padding: 2px 20px;
+  font-family: sans-serif, Arial;
+  font-size: 16px;
+  border: 2px solid #444;
+  border-radius: 50px;
+}
+
+.radio-toolbar label:hover {
+  background-color: var(--hitam);
+  color: var(--kuning);
+}
+
+.admin .menu {
+  border-top: 2px solid var(--hitam);
+  border-bottom: 2px solid var(--hitam);
+}
+.fa-edit:hover {
+  font-size: 30px;
+}
+
+.fa-edit {
+  cursor: pointer;
+}
+
+.active {
+  background-color: var(--kuning);
+  color: var(--hitam) !important;
+}
+
+.tablelaporan td {
+  font-size: 13px;
+}
