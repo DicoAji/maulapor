@@ -14,8 +14,6 @@ class Admin extends BaseController
     protected $MLaporan;
     protected $MPelapor;
     protected $MJenisBenda;
-
-
     public function __construct(){
         $this->MBenda = new MBenda();
         $this->MLaporan = new MLaporan();
@@ -27,8 +25,6 @@ class Admin extends BaseController
     {
         $query = $this->MBenda->tampiladmin();
         $benda = $query->getResultArray();
-        // dd($benda);
-        
         $data = [
             'benda' => $benda,
             'title' => 'Beranda | Admin-MauLapor'
@@ -39,17 +35,12 @@ class Admin extends BaseController
     {
         $query = $this->MLaporan->tampillaporan();
         $laporan = $query->getResultArray();
-        // dd($laporan);
-       
         $data = [
             'laporan' => $laporan,
             'title' => 'Laporan | Admin-MauLapor'
         ];
         return view('admin/laporan',$data);
     }
-
-
-
     public function tambah()
     {
         $jenisbenda = $this->MJenisBenda->findAll();
@@ -94,12 +85,19 @@ class Admin extends BaseController
             'lokasi_saat_ini' => $this->request->getVar('lokasisaatini'),
             'juru_pemelihara' => $this->request->getVar('jupel'),
             'gambar' => $namaImage
-
-    
         ]);
         $session = \Config\Services::session();
-        session()->setFlashdata('add-msg-barang', 'Data Barang berhasil ditambahkan.');
+        session()->setFlashdata('add-msg-barang', 'Data berhasil ditambahkan.');
         return redirect()-> to ('Admin/index');
+    }
+    public function tambahkategori(){
+        $this->MJenisBenda->insert([
+            'jenis_benda' => $this->request->getVar('jenisbenda'),
+           
+        ]);
+        $session = \Config\Services::session();
+        session()->setFlashdata('add-msg-barang', 'Data berhasil ditambahkan.');
+        return redirect()-> to ('Admin/tambah');
     }
     // delete
     public function delete($id_benda){
@@ -115,15 +113,13 @@ class Admin extends BaseController
 
     }
     // ke halaman ubahdata
-    public function ubahdata($id){
-
-        // $jenisbenda = $this->MJenisBenda->findAll();
-
-        $benda = $this->MBenda->find($id);
-        // dd($pegawai);
+    public function ubahdata($id_benda){
+        $jenisbenda = $this->MJenisBenda->findAll();
+        $query = $this->MBenda->tampilubahdata($id_benda);
+        $benda = $query->getFirstRow('array');
        $data=[
            'benda' => $benda,
-        //    'jenisbenda' => $jenisbenda,
+           'jenisbenda' => $jenisbenda,
            'title' => 'Ubah Data  | Admin-MauLapor'
        ];
         return view('/Admin/ubahdata',$data);
@@ -131,51 +127,37 @@ class Admin extends BaseController
 
     }
     // Update data
-    public function update($id){
+    public function update($id_benda){
         $image = $this->request->getFile('gambar');
         $imagelama = $this->request->getVar('gambarlama');
-        // dd($imagelama);
         if ($image->getError() == 4) {
             $namaImage = $imagelama;
-            // $namaImage = $this->request->getVar('gambarlama');
         } else {
             $namaImage = $image->getName();
             $image->move('assets/img/benda',$namaImage);
             //hapus file lama
             unlink('assets/img/benda/'. $this->request->getVar('gambarlama'));
         }
-
         $this->MBenda->save([
-            'id' => $id,
+            'id_benda' => $id_benda,
             'nama_benda' => $this->request->getVar('namabenda'),
-            'penemu' => $this->request->getVar('penemu'),
-            'lokasi_penemuan' => $this->request->getVar('lokasipenemuan'),
-            'keterangan' => $this->request->getVar('keterangan'),
-            'tanggal_penemuan' => $this->request->getVar('tanggalpenemuan'),
-            'alamat' => $this->request->getVar('alamat'),
+            'lokasi_saat_ini' => $this->request->getVar('lokasisaatini'),
+            'juru_pemelihara' => $this->request->getVar('jupel'),
+            'id_jenis_benda' => $this->request->getVar('jenisbenda'),
             'gambar' => $namaImage
         ]);
-        // $this->MBenda->update($id,$data);
         return redirect()-> to ('Admin/index');
     }
-
 
     // ubah laporan
     public function ubahlaporan($id_laporan){
         $query = $this->MLaporan->ubahstatus($id_laporan);
         $laporan = $query->getFirstRow('array');
-        // dd($laporan);
-
-
-        // $laporan = $this->MLaporan->find($id_laporan);
-        // dd($laporan);
        $data=[
            'laporan' => $laporan,
            'title' => 'Ubah Laporan  | Admin-MauLapor'
        ];
         return view('/Admin/ubahstatus',$data);
-        //ke halaman admin uabahdata
-
     }
 
     // updatestatus
@@ -186,11 +168,6 @@ class Admin extends BaseController
             'nama_pelapor' => $this->request->getVar('pelapor'),
             'status' => $this->request->getVar('status')
         ]);
-        // $this->MBenda->update($id,$data);
         return redirect()-> to ('Admin/laporan');
     }
-
-
-
-    
 }

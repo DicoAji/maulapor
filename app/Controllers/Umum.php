@@ -29,7 +29,6 @@ class Umum extends BaseController
 
     public function indexumum()
     {
-        // $query = $this->MBenda->getBenda();
         $data = [
             'title' => 'Beranda-MauLapor',
             
@@ -40,13 +39,12 @@ class Umum extends BaseController
 
     public function koleksi()
     {
-        $query = $this->MBenda->getBenda();
-        // $query = $this->MBenda->tampilkoleksi();
+        
+        $query = $this->MBenda->tampilkoleksi();
         $benda = $query->getResultArray();
         $data = [
             'benda' => $benda,
-            'title' => 'Koleksi-MauLapor',
-            
+            'title' => 'Koleksi-MauLapor',  
         ];
         return view('public/koleksi',$data);
     }
@@ -54,31 +52,12 @@ class Umum extends BaseController
     {
         $data = [
             'title' => 'Laporkan-MauLapor',
-            
         ];
         return view('public/laporkan',$data);
     }
-
-
-
-    // detail
-    public function detail($id){
-
-        $benda = $this->MBenda->find($id);
-        // dd($pegawai);
-       $data=[
-           'benda' => $benda
-       ];
-        return view('/public/modal', $data);
-
-    }
-
-
-
+    
     // tambah laporan
     public function tambahlaporan(){
-
-        // $db =  \Config\Database::connect();
 
         $image = $this->request->getFile('gambar');
         if ($image->getError() == 4) {
@@ -94,9 +73,6 @@ class Umum extends BaseController
             'alamat_pelapor'  => $this->request->getVar('alamat'),
             'nomor_hubung'  => $this->request->getVar('nomor'),
         ]);
-
-      
-
         $this->MLaporan->save([
             'lokasi_penemuan' => $this->request->getVar('lokasi'),
             'nik'  => $this->request->getVar('nik'),
@@ -108,6 +84,30 @@ class Umum extends BaseController
         $session = \Config\Services::session();
         session()->setFlashdata('add-msg-barang', 'Data Barang berhasil ditambahkan.');
         return redirect()-> to ('Umum/laporkan');
+    }
+    public function detail($id){
+
+        $benda = $this->MBenda->find($id);
+        
+       $data=[
+           'benda' => $benda
+       ];
+        return view('/public/modal', $data);
+
+    }
+    public function details($id_benda){
+        // $jenisbenda = $this->MJenisBenda->findAll();
+        $query = $this->MBenda->tampildetail($id_benda);
+        $benda = $query->getFirstRow('array');
+       $data=[
+           'benda' => $benda,
+        //    'jenisbenda' => $jenisbenda,
+           'title' => 'Detail  | Admin-MauLapor'
+       ];
+       dd($data);
+        // return view('/Admin/ubahdata',$data);
+        //ke halaman admin uabahdata
+
     }
 
 

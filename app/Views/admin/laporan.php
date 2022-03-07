@@ -7,8 +7,8 @@
           <input type="text" placeholder="kolom pencarian" id="carilaporan" />
           <!-- tabel koleksi -->
           <div class="card-body">
-            <div class="table-responsive tablelaporan">
-              <table id="table" class="display table table-hover">
+            <div class="table-responsive tabel">
+              <table id="table" class="display table ">
                 <thead class="">
                   <tr class="bg-kuning">
                     
@@ -25,29 +25,23 @@
                 <tbody class="mt-2">
                 <?php  foreach ($laporan as $data) : ?>
                   <tr class="data">
-                   
                     <td><?= $data['nama_pelapor']; ?></td>
                     <td><?= $data['nik']; ?></td>
                     <td><?= $data['alamat_pelapor']; ?></td>
                     <td><?= $data['lokasi_penemuan']; ?></td>
-                    <td><?= $data['tanggal_penemuan']; ?></td>
+                    <td> <?= $formattanggal = date('d-m-Y', strtotime($data['tanggal_penemuan']));; ?></td>
                     <td><?= $data['nomor_hubung']; ?></td>
-                    <td  id="status"><?= $data['status']; ?></td>
-                    
-                    <td>
+                    <td class="tengah <?= ($data['status']) =='belum' ? 'red':  (($data['status']) =='proses' ? 'blue' : 'green') ?> " id="status"> <?= $data['status']; ?></td>
+                    <td class="text-center">
                       <a href="/Admin/ubahlaporan/<?= $data['id_laporan']?>">
-                        <i class="fas fa-edit" style="cursor: pointer"></i>
+                        <i class="fas fa-edit " data-bs-toggle="tooltip" data-bs-placement="top" title="ubah status laporan" style="cursor: pointer"></i>
                       </a>
                       <a href="/Admin/hapuslaporan/<?= $data['id_laporan']; ?>">
-                      <i style="color: red;" class="fa-solid fa-trash-can"></i>
+                        <i style="color: red;" data-bs-toggle="tooltip" data-bs-placement="top" title="hapus laporan" class="fa-solid fa-trash-can"></i>
                       </a>
-                      <!-- <a href="/Admin/ubahlaporan/?= $data['id']?>">
-                        <i class="fas fa-edit" style="cursor: pointer"></i>
-                      </a> -->
                     </td>
                   </tr>
                 <?php endforeach; ?>
-                  
                 </tbody>
               </table>
             </div>
@@ -55,15 +49,4 @@
         </div>
       </div>
     </div>
-    <!-- <script>
-      // var value = document.getElementById('status').value;
-      // var status = document.getElementById('status');
-
-      // if (value == "belum"){
-      //   status.style.color = 'green';
-      // }  else{
-      //   status.style.color = 'yellow';
-      // }
-    </script> -->
-    
     <?= $this->endSection(); ?>

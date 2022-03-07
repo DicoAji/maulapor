@@ -75,6 +75,9 @@
 .red {
   color: red;
 }
+.blue {
+  color: darkturquoise;
+}
 .ungu {
   color: #5403ff;
 }
@@ -297,7 +300,7 @@ footer ul li {
   background-color: transparent !important;
 }
 .pencarian::-webkit-input-placeholder {
-  color: rgb(151, 151, 151);
+  color: rgb(145, 145, 145);
 }
 
 .bg-abu-abu {
@@ -353,7 +356,7 @@ footer ul li {
 }
 
 #sidebar-wrapper .list-group {
-  width: 15rem;
+  width: 18rem;
 }
 
 /* #page-content-wrapper {
@@ -454,7 +457,8 @@ input[type="date"]:in-range::-webkit-datetime-edit-day-field {
   border-top: 2px solid var(--hitam);
   border-bottom: 2px solid var(--hitam);
 }
-.fa-edit:hover {
+.fa-edit:hover,
+.fa-trash-can:hover {
   font-size: 30px;
 }
 
@@ -462,11 +466,17 @@ input[type="date"]:in-range::-webkit-datetime-edit-day-field {
   cursor: pointer;
 }
 
-.active {
+.public-nav-active {
   background-color: var(--kuning);
   color: var(--hitam) !important;
 }
+.admin-nav-active {
+  background-color: var(--hitam);
+}
+.admin-nav-active-a {
+  color: var(--kuning) !important;
+}
 
-.tablelaporan td {
+.tabel td {
   font-size: 13px;
 }

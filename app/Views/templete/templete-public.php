@@ -34,10 +34,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg" >
+    <nav class="navbar navbar-expand-lg" style="position:sticky;top:0" >
       <div class="container">
         <img src="/assets/img/logo/logo.png" class="logo-nav" alt="" />
         <button
@@ -57,15 +58,14 @@
           <ul class="navbar-nav">
             
             <li class="nav-item"  >
-            <!-- ?= $this->uri->segment(2) == 'Beranda-MauLapor' || $this->uri->segment(2) == '' ? 'class="nav-item active"': 'nav-item' ?> -->
-              <a class="nav-link <?= ($title == 'Beranda-MauLapor') ? 'active' : '' ?>" id="nav_beranda" href="/Umum/indexumum">Beranda</a>
+              <a class="nav-link <?= ($title == 'Beranda-MauLapor') ? 'public-nav-active' : '' ?>" id="nav_beranda" href="/Umum/indexumum">Beranda</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?= ($title == 'Koleksi-MauLapor') ? 'active' : '' ?>"  id="nav_koleksi" href="/Umum/koleksi">Koleksi</a>
+              <a class="nav-link <?= ($title == 'Koleksi-MauLapor') ? 'public-nav-active' : '' ?>"  id="nav_koleksi" href="/Umum/koleksi">Koleksi</a>
             </li>
             <li class="nav-item" >
             
-              <a class="nav-link <?= ($title == 'Laporkan-MauLapor') ? 'active' : '' ?> " id="nav_laporkan" href="/Umum/laporkan">Laporkan</a>
+              <a class="nav-link <?= ($title == 'Laporkan-MauLapor') ? 'public-nav-active' : '' ?> " id="nav_laporkan" href="/Umum/laporkan">Laporkan</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/Admin/index">Admin</a>
@@ -142,11 +142,11 @@
                       <a href="/Umum/indexumum#tentang">Tentang</a>
                     </li>
                     <li class="hitam">
-                      <a class="hitam" href="/Admin/login">Admin</a>
+                      <a class="hitam" href="/Admin/index">Admin</a>
                     </li>
-                    <li class="hitam">
+                    <!-- <li class="hitam">
                       <a class="hitam" href="/Admin/lupapassword">lupapassword</a>
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
               </div>
@@ -198,17 +198,28 @@
         return new bootstrap.Tooltip(tooltipTriggerEl)
       })
     </script>
-    <!-- <script>
-      // $(document).ready(function () {
-      //   if (document.title == "Beranda-MauLapor") {
-      //     $("#nav_beranda").addClass("active");
-      //   } else if (document.title == "Koleksi-MauLapor") {
-      //     $("#nav_koleksi").addClass("active");
-      //   } else if (document.title == "Laporkan-MauLapor") {
-      //     $("#nav_laporkan").addClass("active");
-      //   }
-      // });
-    </script> -->
+    <script>
+      document.querySelector('#public-form-laporan').onsubmit = function(){
+        Swal.fire({
+        // position: 'top',
+        icon: 'success',
+        html: '<h2>Terima kasih sudah melapor</h2>',
+        // title: 'Your work has been saved',
+        showConfirmButton: false,
+        timer: 1000
+        })
+
+      }
+    </script>
+
+    <script>
+      var myModal = document.getElementById('myModal')
+      var myInput = document.getElementById('myInput')
+
+      myModal.addEventListener('shown.bs.modal', function () {
+        myInput.focus()
+      })
+    </script>
     
   </body>
 </html>

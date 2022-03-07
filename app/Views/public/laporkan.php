@@ -49,6 +49,7 @@
               method="POST"
               novalidate
               enctype="multipart/form-data"
+              id="public-form-laporan"
             >
             <?= csrf_field(); ?>
               <div class="nama position-relative">
@@ -99,8 +100,6 @@
               </div>
               <div class="status position-relative d-none">
                 <label for="status">Status </label>
-                <!-- <input type="text" value="belum" name="status" id="status" style="color: red;" required /> -->
-                <!-- <input type="text" value="belum" name="status" id="status" style="color: red;" required /> -->
               </div>
               <div class="form-input py-4 position-relative">
                 <label for="">Masukkan gambar</label>

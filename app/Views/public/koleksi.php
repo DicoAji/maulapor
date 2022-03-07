@@ -2,7 +2,7 @@
 
 <?= $this->section('content'); ?>
 
-    <div class="bg-abu-abu pt100 pb100">
+    <div class="bg-abu-abu pt50 pb100">
       <!-- isian -->
       <div class="container cari">
         <h3 class="kuning">Koleksi</h3>
@@ -22,8 +22,8 @@
         <div class="row tengah">
 
         <?php  foreach ($benda as $data) : ?>
-          <div class="col-lg-3 col-md-4 col-12">
-            <div class="p-2 border benda">
+          <div class="col-lg-3 col-md-4 col-12 mt-4 ">
+            <div class="p-2 pb-3 pt-2 border benda">
               <div class="tengah" >
                 <img
                   src="/assets/img/benda/<?= $data['gambar']; ?>"
@@ -37,13 +37,11 @@
               <div class="tengah mt10">
                 <h5 style="font-size: 15px !important;"><?= $data['nama_benda']; ?></h5>
               </div>
-              <div class="tengah">
-                <p style="font-size: 12px !important;" >Lokasi benda saat ini: <?= $data['lokasi_saat_ini']; ?></p>
+              
+              <div class="tengah mt-3">
+                <a href="" class="btn btn-hitam" data-bs-toggle="modal" data-bs-target="#benda_<?= $data['id_benda']; ?>">Detail</a>
+
               </div>
-              <!-- detail -->
-              <!-- <div class="tengah mt-2">
-                <a class=" btn btn-hitam  " href="/Umum/detail">Detail</a>
-              </div> -->
             </div>
           </div>
         <?php endforeach; ?>
@@ -82,4 +80,44 @@
         </div>
       </div>
     </div>
+
+
+    <!-- Modal -->
+    <?php foreach ($benda as $data): ?>
+    <div class="modal fade" id="benda_<?= $data['id_benda']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Detail Benda </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+         
+          <div class="modal-body">
+            <div class="tengah">
+              <img src="/assets/img/benda/<?= $data['gambar']; ?>" alt="/as">
+
+            </div>
+            <div class="tengah mt10">
+              <h3><?= $data['nama_benda']; ?></h3>
+
+            </div>
+            
+            <div class="tengah ">
+                <h5 style="font-size: 13px !important;">Jenis Benda : <?= $data['jenis_benda']; ?></h5>
+            </div>
+            <div class="tengah">
+              <p>Lokasi Ditemukan : <?= $data['lokasi_saat_ini']; ?></p>
+            </div>
+           
+          </div>
+           
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+           
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <?php endforeach ?>
     <?= $this->endSection(); ?>

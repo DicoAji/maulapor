@@ -17,13 +17,11 @@ class MLaporan extends Model
                 $db = \Config\Database::connect();
                 
                 if ($id_laporan != null){
-                        $query = $db->query("SELECT * from laporan where id_lapporan = ".$id_laporan."");
-                        
+                        $query = $db->query("SELECT * from laporan where id_lapporan = ".$id_laporan."");   
                 }
                 
                 else{
                         $query = $db->query("SELECT laporan.id, laporan.tanggal_laporan, laporan.tanggal_penemuan, laporan.lokasi_penemuan, laporan.status, laporan.gambar from laporan");
-
                 }
                 // dd($query);
                 return $query;
@@ -37,9 +35,6 @@ class MLaporan extends Model
                 $builder->select('pelapor.nama_pelapor, id_laporan, pelapor.nik, pelapor.alamat_pelapor,lokasi_penemuan, tanggal_penemuan, status, pelapor.nomor_hubung, laporan.gambar');
                 
                 $builder->join('pelapor','pelapor.nik = laporan.nik');
-               
-
-
                 $query = $builder->get();
                 
                 return $query;
@@ -50,16 +45,13 @@ class MLaporan extends Model
                 $db = \Config\Database::connect();
 
                 $builder = $db->table('laporan');
-                $builder->select('id_laporan, pelapor.nik,  pelapor.nama_pelapor, status');
+                $builder->select('id_laporan, pelapor.nik, laporan.gambar,  pelapor.nama_pelapor, status');
 
                 $builder->join('pelapor','pelapor.nik = laporan.nik');
                 $builder->where('laporan.id_laporan ', $id_laporan);
                 $query = $builder->get();
                 
                 return $query;
-
-
-
         }
 
 

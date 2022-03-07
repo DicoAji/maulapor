@@ -36,39 +36,41 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
     <div class="d-flex" id="wrapper">
       <!-- Sidebar-->
-      <div class="borderkanan admin bg-abu-abu" id="sidebar-wrapper">
-        <div class="sidebar-heading bg-hitam tengah">
+      <div class="borderkanan admin bg-abu-abu position-relative" id="sidebar-wrapper" >
+        <div class="sidebar-heading bg-hitam tengah py-4">
           <img src="/assets/img/logo/logo.png" class="logo" alt="" />
         </div>
         <div class="list-group">
-          <div class="tengah p-2 menu">
-            <a class="" href="/Admin/index"
+          <div class="tengah p-4 menu <?= ($title == 'Beranda | Admin-MauLapor') ? 'admin-nav-active' : '' ?>">
+            <a class="<?= ($title == 'Beranda | Admin-MauLapor') ? 'admin-nav-active-a' : '' ?>" href="/Admin/index"
               ><i class="fas fa-book"></i> Koleksi</a
             >
           </div>
-          <div class="tengah p-2 menu">
-            <a class="" href="/Admin/laporan"
+          <div class="tengah p-4 menu <?= ($title == 'Laporan | Admin-MauLapor') ? 'admin-nav-active' : '' ?>">
+            <a class="<?= ($title == 'Laporan | Admin-MauLapor') ? 'admin-nav-active-a' : '' ?>" href="/Admin/laporan"
               ><i class="fas fa-paper-plane"></i>Laporan</a
             >
           </div>
-          <div class="tengah p-2 menu">
-            <a class="" href="/Admin/tambah"
+          <div class="tengah p-4 menu <?= ($title == 'Tambah | Admin-MauLapor') ? 'admin-nav-active' : '' ?>">
+            <a class="<?= ($title == 'Tambah | Admin-MauLapor') ? 'admin-nav-active-a' : '' ?>" href="/Admin/tambah"
               ><i class="fas fa-plus-square"></i>Tambah</a
             >
           </div>
-          <div class="tengah p-2 menu">
-            <a class="" href="/Umum/indexumum"><i class="fas fa-reply"></i>Logout</a>
+          
+          <div class="tengah p-4 menu ">
+            <a class="" href="/logout"><i class="fas fa-reply"></i>Logout</a>
           </div>
         </div>
       </div>
       <!-- Page content wrapper-->
       <div id="page-content-wrapper " class="wrap" style="width: 100%">
         <!-- Top navigation-->
-        <nav class="navbar navbar-expand-lg border-bottom p-2 py-3">
+        <nav class="navbar navbar-expand-lg border-bottom p-2 py-4" >
           <div class="container">
             <i
               class="fas fa-arrow-right"
@@ -115,5 +117,23 @@
         } 
       });
       </script>
+      <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+      </script>
+      <script>
+        document.querySelector('#admin-form-tambah').onsubmit = function(){
+          Swal.fire({
+          icon: 'success',
+          html: '<h2>Data berhasil ditambah </h2>',
+          showConfirmButton: false,
+          timer: 1000
+          })
+
+        }
+      </script>
+      
 </body>
 </html>
