@@ -1,8 +1,8 @@
-<?= $this->extend('templete/templete-admin'); ?>
+<?= $this->extend('templete/templete-admin2'); ?>
 
 <?= $this->section('content'); ?>
         <!-- Page content-->
-        <div class="container pt50">
+        <div class="container ">
           <h2 class="kuning">laporan masyarakat</h2>
           <input type="text" placeholder="kolom pencarian" id="carilaporan" />
           <!-- tabel koleksi -->
@@ -31,12 +31,12 @@
                     <td><?= $data['lokasi_penemuan']; ?></td>
                     <td> <?= $formattanggal = date('d-m-Y', strtotime($data['tanggal_penemuan']));; ?></td>
                     <td><?= $data['nomor_hubung']; ?></td>
-                    <td class="tengah <?= ($data['status']) =='belum' ? 'red':  (($data['status']) =='proses' ? 'blue' : 'green') ?> " id="status"> <?= $data['status']; ?></td>
+                    <td class="tengah bold <?= ($data['status']) =='belum' ? 'red':  (($data['status']) =='proses' ? 'yellow' : 'green') ?> " id="status"> <?= $data['status']; ?></td>
                     <td class="text-center">
                       <a href="/Admin/ubahlaporan/<?= $data['id_laporan']?>">
                         <i class="fas fa-edit " data-bs-toggle="tooltip" data-bs-placement="top" title="ubah status laporan" style="cursor: pointer"></i>
                       </a>
-                      <a href="/Admin/hapuslaporan/<?= $data['id_laporan']; ?>">
+                      <a href="/Admin/hapuslaporan/<?= $data['id_laporan']; ?>" onclick="return confirm('Apakah anda yakin untuk menghapus data?');">
                         <i style="color: red;" data-bs-toggle="tooltip" data-bs-placement="top" title="hapus laporan" class="fa-solid fa-trash-can"></i>
                       </a>
                     </td>

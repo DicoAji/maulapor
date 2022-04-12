@@ -10,7 +10,7 @@ class MBenda extends Model
         
         protected $primaryKey = 'id_benda';  
         protected $useAutoIncrement = true;  
-        protected $allowedFields = ['id_benda', 'id_jenis_benda','nama_benda', 'lokasi_saat_ini', 'gambar','juru_pemelihara' ];
+        protected $allowedFields = ['id_benda', 'id_jenis_benda','nama_benda', 'lokasi_saat_ini', 'gambar','juru_pemelihara','keterangan' ];
         public function getBenda($id_benda = null){
                 
                 $db = \Config\Database::connect();
@@ -21,7 +21,7 @@ class MBenda extends Model
                 }
                 
                 else{
-                        $query = $db->query("SELECT benda.id_benda, benda.nama_benda, benda.id_jenis_benda, benda.lokasi_saat_ini, benda.gambar, benda.juru_pemelihara from benda");
+                        $query = $db->query("SELECT benda.id_benda, benda.nama_benda, benda.id_jenis_benda, benda.lokasi_saat_ini, benda.gambar, benda.juru_pemelihara, benda.keterangan from benda");
 
                 }
                 return $query;
@@ -31,7 +31,7 @@ class MBenda extends Model
                 $db = \Config\Database::connect();
 
                 $builder = $db->table('benda');
-                $builder->select('nama_benda, id_benda, jenisbenda.jenis_benda, juru_pemelihara,  benda.gambar, lokasi_saat_ini' );                
+                $builder->select('nama_benda, id_benda, jenisbenda.jenis_benda, juru_pemelihara,  benda.gambar, lokasi_saat_ini, keterangan' );                
                 $builder->join('jenisbenda', 'jenisbenda.id_jenis_benda = benda.id_jenis_benda');
                 $query = $builder->get();
                 
@@ -42,7 +42,7 @@ class MBenda extends Model
                 $db = \Config\Database::connect();
                 $builder = $db->table('benda');
 
-                $builder->select('nama_benda, benda.id_benda, benda.id_jenis_benda, jenisbenda.jenis_benda, benda.gambar, lokasi_saat_ini, juru_pemelihara' );
+                $builder->select('nama_benda, benda.id_benda, benda.id_jenis_benda, jenisbenda.jenis_benda, benda.gambar, lokasi_saat_ini, juru_pemelihara, keterangan' );
                 $builder->join('jenisbenda','jenisbenda.id_jenis_benda = benda.id_jenis_benda');
                 $query = $builder->get();
                 
@@ -52,7 +52,7 @@ class MBenda extends Model
                 $db = \Config\Database::connect();
                 $builder = $db->table('benda');
 
-                $builder->select('nama_benda, id_benda, benda.id_jenis_benda, jenisbenda.jenis_benda,  benda.gambar,  lokasi_saat_ini, juru_pemelihara' );
+                $builder->select('nama_benda, id_benda, benda.id_jenis_benda, jenisbenda.jenis_benda,  benda.gambar,  lokasi_saat_ini, juru_pemelihara, keterangan' );
                 $builder->join('jenisbenda','jenisbenda.id_jenis_benda = benda.id_jenis_benda');
                 $builder->where('benda.id_benda', $id_benda);
                 $query = $builder->get();

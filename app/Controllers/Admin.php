@@ -21,7 +21,7 @@ class Admin extends BaseController
         $this->MJenisBenda = new MJenisBenda();
         $this->db = \Config\Database::connect();
     }
-    public function index()
+    public function indeks()
     {
         $query = $this->MBenda->tampiladmin();
         $benda = $query->getResultArray();
@@ -84,11 +84,12 @@ class Admin extends BaseController
             'id_jenis_benda' => $this->request->getVar('jenisbenda'),
             'lokasi_saat_ini' => $this->request->getVar('lokasisaatini'),
             'juru_pemelihara' => $this->request->getVar('jupel'),
+            'keterangan' => $this->request->getVar('keterangan'),
             'gambar' => $namaImage
         ]);
         $session = \Config\Services::session();
         session()->setFlashdata('add-msg-barang', 'Data berhasil ditambahkan.');
-        return redirect()-> to ('Admin/index');
+        return redirect()-> to ('Admin/indeks');
     }
     public function tambahkategori(){
         $this->MJenisBenda->insert([
@@ -103,7 +104,7 @@ class Admin extends BaseController
     public function delete($id_benda){
 
         $this->MBenda->delete($id_benda);
-        return redirect()-> to ('Admin/index');
+        return redirect()-> to ('Admin/indeks');
 
     }
     public function hapuslaporan($id_laporan){
@@ -117,6 +118,7 @@ class Admin extends BaseController
         $jenisbenda = $this->MJenisBenda->findAll();
         $query = $this->MBenda->tampilubahdata($id_benda);
         $benda = $query->getFirstRow('array');
+        // dd($benda);
        $data=[
            'benda' => $benda,
            'jenisbenda' => $jenisbenda,
@@ -144,9 +146,10 @@ class Admin extends BaseController
             'lokasi_saat_ini' => $this->request->getVar('lokasisaatini'),
             'juru_pemelihara' => $this->request->getVar('jupel'),
             'id_jenis_benda' => $this->request->getVar('jenisbenda'),
+            'keterangan' => $this->request->getVar('keterangan'),
             'gambar' => $namaImage
         ]);
-        return redirect()-> to ('Admin/index');
+        return redirect()-> to ('Admin/indeks');
     }
 
     // ubah laporan

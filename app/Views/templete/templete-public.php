@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?= $title; ?></title>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 
     <!-- favicon -->
     <link
@@ -35,6 +36,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+
+</script>
+    
   </head>
   <body>
     <!-- navbar -->
@@ -43,6 +48,7 @@
         <img src="/assets/img/logo/logo.png" class="logo-nav" alt="" />
         <button
           class="navbar-toggler"
+          style="color: transparent !important;"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -50,7 +56,7 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon kuning"
+          <span class="navbar-toggler-icon kuning" 
             ><i class="fas fa-bars"></i
           ></span>
         </button>
@@ -58,18 +64,18 @@
           <ul class="navbar-nav">
             
             <li class="nav-item"  >
-              <a class="nav-link <?= ($title == 'Beranda-MauLapor') ? 'public-nav-active' : '' ?>" id="nav_beranda" href="/Umum/indexumum">Beranda</a>
+              <a class="nav-link <?= ($title == 'Beranda-MauLapor') ? 'public-nav-active' : '' ?>" id="nav_beranda" href="/Umum/index">Beranda</a>
             </li>
             <li class="nav-item">
               <a class="nav-link <?= ($title == 'Koleksi-MauLapor') ? 'public-nav-active' : '' ?>"  id="nav_koleksi" href="/Umum/koleksi">Koleksi</a>
             </li>
             <li class="nav-item" >
             
-              <a class="nav-link <?= ($title == 'Laporkan-MauLapor') ? 'public-nav-active' : '' ?> " id="nav_laporkan" href="/Umum/laporkan">Laporkan</a>
+              <a class="nav-link <?= ($title == 'Laporkan-MauLapor') ? 'public-nav-active' : '' ?> " data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="nav_laporkan" href="/Umum/laporkan">Laporkan</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="/Admin/index">Admin</a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -80,6 +86,8 @@
 
 
 <?= $this->renderSection('content'); ?>
+
+
 
 
  <!-- footer -->
@@ -130,20 +138,20 @@
                   <p class="kuning"><strong>MENU</strong></p>
                   <ul>
                     <li>
-                      <a href="/Umum/indexumum">Beranda</a>
+                      <a href="/Umum">Beranda</a>
                     </li>
                     <li>
                       <a href="/Umum/koleksi">Koleksi</a>
                     </li>
                     <li>
-                      <a href="/Umum/laporkan">Laporkan</a>
+                      <a href="/Umum/laporkan" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Laporkan</a>
                     </li>
                     <li>
-                      <a href="/Umum/indexumum#tentang">Tentang</a>
+                      <a href="/Umum/index#tentang" class="tentang-about">Tentang</a>
                     </li>
-                    <li class="hitam">
+                    <!-- <li class="hitam">
                       <a class="hitam" href="/Admin/index">Admin</a>
-                    </li>
+                    </li> -->
                     <!-- <li class="hitam">
                       <a class="hitam" href="/Admin/lupapassword">lupapassword</a>
                     </li> -->
@@ -155,6 +163,32 @@
         </div>
       </div>
   </footer>
+  <!-- Modal konfirmasi laporan-->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="tengah">
+            <h2 class="modal-title text-danger" id="staticBackdropLabel">Perhatian</h2>
+
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+          <div class="tengah">
+            <img src="/assets/img/danger.png" alt="danger">
+          </div>
+          <ul class="mt10"> Jangan asal lapor telitilah benda yang kamu temukan terlebih dahulu </ul>
+        </div>
+        <div class="modal-footer">
+          <a href="/Umum/laporkan" type="button" class="btn btn-success">Lanjutkan</a>
+          <!-- <button type="button" class="btn btn-danger" >Close</button> -->
+          
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
@@ -212,14 +246,14 @@
       }
     </script>
 
-    <script>
+    <!-- <script>
       var myModal = document.getElementById('myModal')
       var myInput = document.getElementById('myInput')
 
       myModal.addEventListener('shown.bs.modal', function () {
         myInput.focus()
       })
-    </script>
+    </script> -->
     
   </body>
 </html>

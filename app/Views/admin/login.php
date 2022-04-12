@@ -52,12 +52,12 @@
               <!-- username -->
               <div class="username">
                 <label for="username">Username</label>
-                <input type="text" placeholder="username" />
+                <input type="text" placeholder="" />
               </div>
               <!-- password -->
               <div class="password mt20">
                 <label for="password">Password</label>
-                <input type="password" placeholder="password" />
+                <input type="password" placeholder="" />
               </div>
             </form>
           </div>

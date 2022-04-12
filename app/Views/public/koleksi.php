@@ -25,6 +25,9 @@
           <div class="col-lg-3 col-md-4 col-12 mt-4 ">
             <div class="p-2 pb-3 pt-2 border benda">
               <div class="tengah" >
+                <!-- <div class="img-benda" style="background-image: url(' ?php base_url() ?>/assets/img/benda/?= $data['gambar']; ?>'); height: 200px;background-size: cover;background-position: center;">
+
+                </div> -->
                 <img
                   src="/assets/img/benda/<?= $data['gambar']; ?>"
                   class="tengah conta"
@@ -94,7 +97,7 @@
          
           <div class="modal-body">
             <div class="tengah">
-              <img src="/assets/img/benda/<?= $data['gambar']; ?>" alt="/as">
+              <img src="/assets/img/benda/<?= $data['gambar']; ?>" alt="/as" style="height: 200px;width:auto">
 
             </div>
             <div class="tengah mt10">
@@ -102,11 +105,11 @@
 
             </div>
             
-            <div class="tengah ">
+            <div class="ps-3 ">
                 <h5 style="font-size: 13px !important;">Jenis Benda : <?= $data['jenis_benda']; ?></h5>
             </div>
-            <div class="tengah">
-              <p>Lokasi Ditemukan : <?= $data['lokasi_saat_ini']; ?></p>
+            <div class="ps-3">
+              <p>Lokasi : <?= $data['lokasi_saat_ini']; ?></p>
             </div>
            
           </div>

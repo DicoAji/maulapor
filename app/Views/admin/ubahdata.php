@@ -1,8 +1,8 @@
-<?= $this->extend('templete/templete-admin'); ?>
+<?= $this->extend('templete/templete-admin2'); ?>
 
 <?= $this->section('content'); ?>
         <!-- Page content-->
-        <div class="container pt50 pb50">
+        <div class="container ">
           <h2 class="kuning tengah">ubah data</h2>
           <p class="text-center">Upload gambar dengan resolusi 170x200</p>
           
@@ -54,25 +54,29 @@
                 </div>
                 
                 <div class="Lokasi mt-4">
-                  <label for="lokasisaatini">Lokasi saat ini (penyimpanan) :</label>
+                  <label for="lokasisaatini">Lokasi  :</label>
                   <input type="text" required id="lokasisaatini" class="w-100" name="lokasisaatini" value="<?= $benda['lokasi_saat_ini'] ?>">
                 </div>
                 <div class="jenis mt-4">
-                  <label for="jenisbenda">Jenis Benda :</label>
+                  <label for="jenisbenda">Jenis Benda : <span class="kuning"><?=  $benda['jenis_benda']; ?> </span> </label>
 
                   <select class="form-select mt-2" id="jenisbenda" name="jenisbenda">
-                    <option selected value="<?= $benda['jenis_benda']; ?>"  > <?=  $benda['jenis_benda']; ?></option>
+                    <!-- <option value=""   id="pilihjenisbenda" >pilih jenis benda</option> -->
                     
                     <?php foreach ($jenisbenda as $jenisbenda) :?>
-                    <option value="<?= $jenisbenda['id_jenis_benda']; ?>">  <?= $jenisbenda['jenis_benda']; ?></option>
+                    <option <?= ($jenisbenda['id_jenis_benda'] == $benda['id_jenis_benda']) ? 'selected':''; ?> value="<?= $jenisbenda['id_jenis_benda']; ?>">  <?= $jenisbenda['jenis_benda']; ?></option>
                     <?php endforeach ?>
                   </select>
                   <div class="invalid-feedback">Jenis benda tidak boleh kosong</div>
                 </div>
                 
                 <div class="Lokasi mt-4">
-                  <label for="jupel">Juru pemelihara</label>
+                  <label for="jupel">Jupel</label>
                   <input type="text" required id="jupel" class="w-100" name="jupel" value="<?= $benda['juru_pemelihara'] ?>">
+                </div>
+                <div class="Keterangan mt-4">
+                  <label for="keterangan">Keterangan</label>
+                  <input type="text" required id="keterangan" class="w-100" name="keterangan" value="<?= $benda['keterangan'] ?>">
                 </div>
                 <div class="submite mt-4 justify-content-end d-flex">
                   <button type="submit" class="btn btn-hitam w-100 tengah">

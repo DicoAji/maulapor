@@ -1,8 +1,8 @@
-<?= $this->extend('templete/templete-admin'); ?>
+<?= $this->extend('templete/templete-admin2'); ?>
 
 <?= $this->section('content'); ?>
         <!-- Page content-->
-        <div class="container pt50 pb50">
+        <div class="container ">
           <h2 class="kuning tengah">Tambah data</h2>
           <p class="text-center">Upload gambar dengan resolusi 170x200</p>
           <div class="d-flex justify-content-end">
@@ -14,14 +14,22 @@
               <div class="col-lg-6 col-12">
                 <div class="gambar tengah">
                   <div class="form-input">
+
+                  
                     <div class="preview">
+                      <!-- <div class="img-prev" id="file-ip-1-preview" style="background-image: url(' ?php base_url() ?>/assets/img/uploadgambar/uploadgambar.jpg');background-position: center center;background-size: cover;background-repeat: no-repeat;width:200px">
+
+                      </div> -->
                       <img
                         id="file-ip-1-preview"
-                        
+                        style="max-height: 400px;"
                         src="/assets/img/uploadgambar/uploadgambar.jpg"
                       />
                     </div>
                     <div class="prev">
+                    <label for="file-ip-1" class="mt10 tengah">
+                      <div class="btn btn-transparant">upload</div>
+                    </label>
                       <input
                       class="d-none"
                         type="file"
@@ -29,12 +37,11 @@
                         accept="image/*"
                         onchange="showPreview(event);"
                         name="gambar"
+                        style="max-height: 400px;"
                       />
                       <div class="invalid-feedback text-center">Silahkan masukkan gambar</div>
                     </div>
-                    <label for="file-ip-1" class="mt10 tengah">
-                      <div class="btn btn-transparant">upload</div>
-                    </label>
+                    
                   </div>
                 </div>
               </div>
@@ -62,7 +69,7 @@
                   <div class="invalid-feedback">Jenis benda tidak boleh kosong</div>
                 </div>
                 <div class="Lokasi mt-4">
-                  <label for="lokasisaatini">Lokasi saat ini:</label>
+                  <label for="lokasisaatini">Lokasi :</label>
                   <textarea
                     required
                     name="lokasisaatini"
@@ -72,7 +79,7 @@
                   <div class="invalid-feedback">Lokasi tidak boleh kosong</div>
                 </div>
                 <div class="Lokasi mt-4">
-                  <label for="jupel">Juru Pemelihara:</label>
+                  <label for="jupel">Jupel :</label>
                   <textarea
                     required
                     name="jupel"
@@ -80,6 +87,17 @@
                     class="w-100"
                   ></textarea>
                 </div>
+                <div class="keterangan mt-4">
+                  <label for="keterangan">Keterangan :</label>
+                  <textarea
+                    required
+                    name="keterangan"
+                    id="keterangan"
+                    class="w-100"
+                  ></textarea>
+                </div>
+
+
                 <div class="submite mt-4 justify-content-end d-flex">
                   <button type="submit" class="btn btn-hitam w-100 tengah">
                     Tambah

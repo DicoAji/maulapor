@@ -14,7 +14,7 @@
                 SELAMAT DATANG DI <br />
                 MAULAPOR
               </h1>
-              <a href="/Umum/laporkan" class="btn btn-transparant mt20">
+              <a href="/Umum/laporkan" class="btn btn-transparant mt20" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 Laporkan penemuan benda
               </a>
               

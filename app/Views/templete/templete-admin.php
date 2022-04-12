@@ -37,32 +37,33 @@
       crossorigin="anonymous"
     ></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
   </head>
   <body>
-    <div class="d-flex" id="wrapper">
+    <div class="d-flex " id="wrapper">
       <!-- Sidebar-->
-      <div class="borderkanan admin bg-abu-abu position-relative" id="sidebar-wrapper" >
-        <div class="sidebar-heading bg-hitam tengah py-4">
+      <div class="borderkanan fixedd side-admin admin bg-abu-abu  " id="sidebar-wrapper"  >
+        <div class="sidebar-heading bg-hitam tengah " style="padding-top: 25px;padding-bottom: 25px; " >
           <img src="/assets/img/logo/logo.png" class="logo" alt="" />
         </div>
-        <div class="list-group">
-          <div class="tengah p-4 menu <?= ($title == 'Beranda | Admin-MauLapor') ? 'admin-nav-active' : '' ?>">
-            <a class="<?= ($title == 'Beranda | Admin-MauLapor') ? 'admin-nav-active-a' : '' ?>" href="/Admin/index"
+        <div class="list-group ">
+          <div class="tengah p-2 menu <?= ($title == 'Beranda | Admin-MauLapor') ? 'admin-nav-active' : '' ?>">
+            <a class="<?= ($title == 'Beranda | Admin-MauLapor') ? 'admin-nav-active-a' : '' ?>" href="/Admin/indeks"
               ><i class="fas fa-book"></i> Koleksi</a
             >
           </div>
-          <div class="tengah p-4 menu <?= ($title == 'Laporan | Admin-MauLapor') ? 'admin-nav-active' : '' ?>">
+          <div class="tengah p-2 menu <?= ($title == 'Laporan | Admin-MauLapor') ? 'admin-nav-active' : '' ?>">
             <a class="<?= ($title == 'Laporan | Admin-MauLapor') ? 'admin-nav-active-a' : '' ?>" href="/Admin/laporan"
               ><i class="fas fa-paper-plane"></i>Laporan</a
             >
           </div>
-          <div class="tengah p-4 menu <?= ($title == 'Tambah | Admin-MauLapor') ? 'admin-nav-active' : '' ?>">
+          <div class="tengah p-2 menu <?= ($title == 'Tambah | Admin-MauLapor') ? 'admin-nav-active' : '' ?>">
             <a class="<?= ($title == 'Tambah | Admin-MauLapor') ? 'admin-nav-active-a' : '' ?>" href="/Admin/tambah"
               ><i class="fas fa-plus-square"></i>Tambah</a
             >
           </div>
           
-          <div class="tengah p-4 menu ">
+          <div class="tengah p-2 menu ">
             <a class="" href="/logout"><i class="fas fa-reply"></i>Logout</a>
           </div>
         </div>
@@ -70,18 +71,25 @@
       <!-- Page content wrapper-->
       <div id="page-content-wrapper " class="wrap" style="width: 100%">
         <!-- Top navigation-->
-        <nav class="navbar navbar-expand-lg border-bottom p-2 py-4" >
-          <div class="container">
-            <i
+        <nav class="navbar fixedd nav-admin navbar-expand-lg border-bottom p-2 py-3" >
+          <div class="container fixedd">
+          <!-- <i class="bi bi-columns-gap" style="cursor: pointer"
+              id="sidebarToggle"></i> -->
+              <i class="bi bi-list fixedd" style="cursor: pointer"  id="sidebarToggle"></i>
+            <!-- <i
               class="fas fa-arrow-right"
               style="cursor: pointer"
               id="sidebarToggle"
-            ></i>
+            ></i> -->
           </div>
         </nav>
 
+        <div class="pt50 pb50">
+        <?= $this->renderSection('content'); ?>
+        </div>
 
-  <?= $this->renderSection('content'); ?>
+
+  
 
   <!-- Bootstrap core JS-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -109,7 +117,7 @@
       <script>
         $(document).ready(function () {
         if (document.getElementById('status') == "proses") {
-          $("#status").style.color == "blue";
+          $("#status").style.color == "yellow";
         }else if (document.getElementById('status') == "belum") {
           $("#status").style.color == "red";
         } else if (document.getElementById('status') == "selesai") {

@@ -1,18 +1,18 @@
-<?= $this->extend('templete/templete-admin'); ?>
+<?= $this->extend('templete/templete-admin2'); ?>
 
 <?= $this->section('content'); ?>
         <!-- Page content-->
-        <div class="container ubahstatus p-4">
+        <div class="container ubahstatus ">
           <h2 class="kuning text-center">Ubah status laporan</h2>
           <form action="/Admin/updatestatus/<?=$laporan['id_laporan']; ?>" method="POST" enctype="multipart/form-data">
           <?= csrf_field(); ?>
-            <div class="ketegori mt50 ">
+            <div class="ketegori ">
               <div class="tengah mb-4">
                 <label>Update status laporan nama pelapor <?= $laporan['nama_pelapor']; ?> </label>
               </div>
               <div class="tengah mt-4">
               <div class="gambar">
-                  <img src="/assets/img/gambarlaporan/<?= $laporan['gambar']; ?>" alt="">
+                  <img src="/assets/img/gambarlaporan/<?= $laporan['gambar']; ?>" alt="" style="max-width: 500px;" >
 
                 </div>
               </div>

@@ -27,7 +27,7 @@ class Umum extends BaseController
     }
 
 
-    public function indexumum()
+    public function index()
     {
         $data = [
             'title' => 'Beranda-MauLapor',
@@ -52,8 +52,11 @@ class Umum extends BaseController
     {
         $data = [
             'title' => 'Laporkan-MauLapor',
+            
         ];
+        
         return view('public/laporkan',$data);
+        
     }
     
     // tambah laporan
