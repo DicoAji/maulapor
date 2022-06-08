@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Daftar - MauLapor</title>
     <!-- favicon -->
-    <!-- favicon -->
     <link
       rel="shortcut icon"
-      href="/favicon.ico"
+      href="<?php base_url();?>/favicon.ico"
       type="image/x-icon"
     />
     <!-- style.css -->

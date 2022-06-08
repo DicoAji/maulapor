@@ -9,7 +9,7 @@
     <!-- favicon -->
     <link
       rel="shortcut icon"
-      href="/favicon.ico"
+      href="<?php base_url() ?>/favicon.ico"
       type="image/x-icon"
     />
     <!-- style.css -->
@@ -92,7 +92,6 @@
             <small>
               <small>
                 <a href="<?= route_to('forgot') ?>">Lupa password?</a>
-                <a href="<?= route_to('register') ?>">Daftar akun</a>
               </small>
             </small>
           </div>

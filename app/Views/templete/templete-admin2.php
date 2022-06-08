@@ -5,23 +5,15 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Material Admin</title>
-  <!-- plugins:css -->
-  <!-- <link rel="stylesheet" href="node_modules/mdi/css/materialdesignicons.min.css"> -->
-  <!-- endinject -->
-  <!-- plugin css for this page -->
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
-  <!-- favicon -->
+  <title><?= $title; ?></title>
   <link
       rel="shortcut icon"
-      href="/favicon.ico"
+      href="<?php base_url() ?>/favicon.ico"
       type="image/x-icon"
     />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="/assets/css/style_admin.css">
+  <link rel="stylesheet" href="<?php base_url() ?>/assets/css/style_admin.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="images/favicon.png" />
   <!-- font awesome -->
   <link
   rel="stylesheet"
@@ -55,14 +47,14 @@
     <aside class="mdc-persistent-drawer mdc-persistent-drawer--open">
       <nav class="mdc-persistent-drawer__drawer">
         <div class="mdc-persistent-drawer__toolbar-spacer">
-          <a href="index.html" class="brand-logo">
-						<img src="/assets/img/logo/logo.png" alt="logo">
+          <a href="" class="brand-logo">
+						<img src="<?php base_url() ?>/assets/img/logo/logo.png" alt="logo">
 					</a>
         </div>
         <div class="mdc-list-group admin-menu">
-          <nav class="mdc-list mdc-drawer-menu bg-abu-abu" style="min-height: 900px;border-right: 2px solid black;">
+          <nav class="mdc-list mdc-drawer-menu bg-abu-abu" style="min-height: 900px;">
             <div class="mdc-list-item mdc-drawer-item <?= ($title == 'Beranda | Admin-MauLapor') ? 'admin-nav-active' : '' ?>" >
-              <a class="mdc-drawer-link <?= ($title == 'Beranda | Admin-MauLapor') ? 'admin-nav-active-a' : '' ?>" href="/Admin/indeks">
+              <a class="mdc-drawer-link <?= ($title == 'Beranda | Admin-MauLapor') ? 'admin-nav-active-a' : '' ?>" href="<?php base_url() ?>/Admin/indeks">
                 <i class="fas fa-book material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true"></i>
                 Koleksi
               </a>
@@ -70,21 +62,21 @@
              
             </div>
             <div class="mdc-list-item mdc-drawer-item <?= ($title == 'Laporan | Admin-MauLapor') ? 'admin-nav-active' : '' ?>">
-              <a class="mdc-drawer-link <?= ($title == 'Laporan | Admin-MauLapor') ? 'admin-nav-active-a' : '' ?>" href="/Admin/laporan">
+              <a class="mdc-drawer-link <?= ($title == 'Laporan | Admin-MauLapor') ? 'admin-nav-active-a' : '' ?>" href="<?php base_url() ?>/Admin/laporan">
                 <i class="fas fa-paper-plane material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true"></i>
                 Laporan
               </a>
               <!--  -->
             </div>
             <div class="mdc-list-item mdc-drawer-item <?= ($title == 'Tambah | Admin-MauLapor') ? 'admin-nav-active' : '' ?>">
-              <a class="mdc-drawer-link <?= ($title == 'Tambah | Admin-MauLapor') ? 'admin-nav-active-a' : '' ?>" href="/Admin/tambah">
+              <a class="mdc-drawer-link <?= ($title == 'Tambah | Admin-MauLapor') ? 'admin-nav-active-a' : '' ?>" href="<?php base_url() ?>/Admin/tambah">
                 <i class="fas fa-plus-square material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true"></i>
                 Tambah
               </a>
              
             </div>
             <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-drawer-link" href="/logout">
+              <a class="mdc-drawer-link" href="<?php base_url() ?>/logout">
                 <i class="fas fa-reply material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true"></i>
                 Logout
               </a>
@@ -97,17 +89,10 @@
     <!-- partial -->
     <!-- partial:partials/_navbar.html -->
     <header class="mdc-toolbar mdc-elevation--z4 mdc-toolbar--fixed">
-    
       <div class="mdc-toolbar__row ">
         <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
           <a href="#" class="menu-toggler material-icons mdc-toolbar__menu-icon"><i class="fa-solid fa-bars" ></i></a>
-          <!-- <div class="logo-batang d-flex tengah mx-auto">
-            <img src="/assets/img/dinas/Logo_Batang.png" class="mx-auto" style="height: 40px;"  alt=""> <span class="text-white ms-2 d-flex align-items-center bold ">Dinas Pendidikan dan Kebudayaan Kabupaten Batang</span>
-          </div> -->
         </section>
-        
-       
-        
       </div>
     </header>
     <!-- partial -->
@@ -116,40 +101,20 @@
         <div class="p-4">
           <!-- conteks -->
           <?= $this->renderSection('content'); ?>
-
         </div>
       </main>
-      <!-- partial:partials/_footer.html -->
-      <!-- <footer>
-        <div class="mdc-layout-grid">
-          <div class="mdc-layout-grid__inner">
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
-              <span class="text-muted">Copyright © 2018 <a class="text-green" href="https://www.bootstrapdash.com/" target="_blank">Bootstrap Dash</a>. All rights reserved.</span>
-            </div>
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6 d-flex justify-content-end">
-              <span class="mt-0 text-right">Hand-crafted &amp; made with <i class="mdi mdi-heart text-red"></i></span>
-            </div>
-          </div>
-        </div>
-      </footer> -->
-      <!-- partial -->
     </div>
   </div>
   <!-- body wrapper -->
   <!-- plugins:js -->
-  <script src="/assets/jsadmin/material-components-web.min.js"></script>
-  <script src="/assets/jsadmin/dist/jquery.min.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page-->
-  <!-- <script src="/assets/jsadmin/Chart.min.js"></script>
-  <script src="node_modules/progressbar.js/dist/progressbar.min.js"></script> -->
-  <!-- End plugin js for this page-->
+  <script src="<?php base_url() ?>/assets/jsadmin/material-components-web.min.js"></script>
+  <script src="<?php base_url() ?>/assets/jsadmin/dist/jquery.min.js"></script>
   <!-- inject:js -->
-  <script src="/assets/jsadmin/misc.js"></script>
-  <script src="/assets/jsadmin/material.js"></script>
+  <script src="<?php base_url() ?>/assets/jsadmin/misc.js"></script>
+  <script src="<?php base_url() ?>/assets/jsadmin/material.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="/assets/jsadmin/dashboard.js"></script>
+  <script src="<?php base_url() ?>/assets/jsadmin/dashboard.js"></script>
   <!-- End custom js for this page-->
   <!-- Bootstrap core JS-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -160,47 +125,55 @@
       src="http://code.jquery.com/jquery-1.7.1.js"
     ></script>
 
-    <script src="/assets/jsadmin/scriptsadmin.js"></script>
+    <script src="<?php base_url() ?>/assets/jsadmin/scriptsadmin.js"></script>
     <script>
-        function showPreview(event) {
-          if (event.target.files.length > 0) {
-            var src = URL.createObjectURL(event.target.files[0]);
-            var preview = document.getElementById("file-ip-1-preview");
-            preview.src = src;
-            preview.style.display = "block";
-            preview.style.height = "100%";
-            preview.style.width = "100%";
-          }
+      function showPreview(event) {
+        if (event.target.files.length > 0) {
+          var src = URL.createObjectURL(event.target.files[0]);
+          var preview = document.getElementById("file-ip-1-preview");
+          preview.src = src;
+          preview.style.display = "block";
+          preview.style.height = "200px";
+          preview.style.width = "100%";
         }
-      </script>
+      }
+      function showPreview2(event) {
+        if (event.target.files.length > 0) {
+          var src = URL.createObjectURL(event.target.files[0]);
+          var preview = document.getElementById("file-ip-2-preview");
+          preview.src = src;
+          preview.style.display = "block";
+          preview.style.height = "200px";
+          preview.style.width = "100%";
+        }
+      }
+      function showPreview3(event) {
+        if (event.target.files.length > 0) {
+          var src = URL.createObjectURL(event.target.files[0]);
+          var preview = document.getElementById("file-ip-3-preview");
+          preview.src = src;
+          preview.style.display = "block";
+          preview.style.height = "200px";
+          preview.style.width = "100%";
+        }
+      }
+      function showPreview4(event) {
+        if (event.target.files.length > 0) {
+          var src = URL.createObjectURL(event.target.files[0]);
+          var preview = document.getElementById("file-ip-4-preview");
+          preview.src = src;
+          preview.style.display = "block";
+          preview.style.height = "200px";
+          preview.style.width = "100%";
+        }
+      }
 
-      <script>
-      //   $(document).ready(function () {
-      //   if (document.getElementById('status') == "proses") {
-      //     $("#status").style.color == "yellow";
-      //   }else if (document.getElementById('status') == "belum") {
-      //     $("#status").style.color == "red";
-      //   } else if (document.getElementById('status') == "selesai") {
-      //     $("#status").style.color == "green";
-      //   } 
-      // });
-      </script>
+    </script>
       <script>
         var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
           return new bootstrap.Tooltip(tooltipTriggerEl)
         })
-      </script>
-      <script>
-        document.querySelector('#admin-form-tambah').onsubmit = function(){
-          Swal.fire({
-          icon: 'success',
-          html: '<h2>Data berhasil ditambah </h2>',
-          showConfirmButton: false,
-          timer: 1000
-          })
-
-        }
       </script>
 
       <script>

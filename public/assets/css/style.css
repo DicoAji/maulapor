@@ -34,6 +34,10 @@
   .laporanheader {
     border-right: 2px solid black !important;
   }
+  iframe{
+    width: 100% !important;
+    height: 300px;
+  }
 }
 
 /* MAX */
@@ -50,6 +54,16 @@
   .alat {
     margin-top: 30px !important;
   }
+  .gambarcari{
+    height: 300px !important;
+  }
+  .tentang_head{
+    margin-top: 50px;
+  }
+  .card_tentang{
+    text-align: center;
+  }
+  
 }
 @media (max-width: 376px) {
   .kotaklogin {
@@ -57,9 +71,36 @@
   }
 }
 @media (max-width: 426px) {
-  .prasasti {
+  .prasasti,.landmark {
     display: none;
   }
+}
+@media (max-width: 576px){
+  .deskripsi{
+    margin-top: 40px !important;
+    text-align: center;
+  }
+  .sekilasinfo{
+    margin-top: 0px !important;
+  }
+  .borobudur{
+    height: 130px !important;
+  }
+  .public-nav-active{
+    background-color: var(--kuning);
+    display: flex;
+    width: 100%;
+  }
+  /* .mapouter{
+    display: none !important;
+  } */
+  .tentang{
+    padding-top: 50px !important;
+  }
+  /* .mapouter2{
+    display: block !important;
+  } */
+
 }
 /* @media (in-width: 376px) */
 
@@ -95,6 +136,10 @@ color: #ffbb3d ;
 .hitam {
   color: var(--hitam) !important;
 }
+.biru{
+  color: rgb(60, 60, 226);
+}
+
 
 .bg-coklat {
   background-image: url("../img/background/bg-coklat.png");
@@ -157,6 +202,10 @@ color: #ffbb3d ;
 .pt50 {
   padding-top: 50px !important;
 }
+.pt25 {
+  padding-top: 25px !important;
+}
+
 .pb100 {
   padding-bottom: 100px;
 }
@@ -185,12 +234,16 @@ h2 {
   font-family: "CROSSROADSITALIC";
   font-size: 2.5rem !important;
 }
+h4 {
+  font-family: "CROSSROADSITALIC";
+  font-size: 1.6rem !important;
+}
 h3 {
   font-family: "Mochiy" !important;
   font-size: 1.3rem !important;
 }
 p {
-  font-size: 0.8rem !important;
+  font-size: 0.8rem ;
   font-family: "Mochiy" !important;
   margin: 0 !important;
 }
@@ -239,11 +292,27 @@ nav .nav-item .nav-link:hover {
 }
 .prasasti {
   background-image: url("../img/pendukung/prasasti.png");
+  /* background-position: center center; */
+  background-size: contain;
+  height: 400px;
+  background-repeat: no-repeat;
+}
+.prasasti:hover{
+  transform: translateY(-50px);
+  transition-duration: 1s;
+}
+.landmark{
+  background-image: url("../img/pendukung/landmark.gif");
   background-position: center center;
   background-size: contain;
   height: 400px;
   background-repeat: no-repeat;
 }
+.prasasti:hover{
+  transform: translateY(-50px);
+  transition-duration: 5s;
+}
+
 .borobudur {
   background-image: url("../img/pendukung/borobudur.png");
   background-size: contain;
@@ -274,6 +343,12 @@ nav .nav-item .nav-link:hover {
 }
 .figma {
   background-image: url("../img/tools/figma.png");
+}
+.jQuery {
+  background-image: url("../img/tools/jQuery.gif");
+}
+.fontA {
+  background-image: url("../img/tools/fontA.png");
 }
 
 .alat {
@@ -489,8 +564,10 @@ input[type="date"]:in-range::-webkit-datetime-edit-day-field {
 }
 
 .public-nav-active {
+ 
   background-color: var(--kuning);
   color: var(--hitam) !important;
+  
 }
 .admin-nav-active {
   background-color: var(--hitam);
@@ -589,3 +666,63 @@ margin-top: 25px;
 .nav-admin{
   top: 0;
 } */
+
+/* modal */
+@media (min-width: 576px){
+  .modal-dialog {
+      width: 800px;
+      margin: auto ;
+      padding: auto !important;
+  }
+
+}
+
+
+.bold{
+  font-weight: 900;
+}
+
+
+/*********************************************/
+/*               CAPTCHA                     */
+/*********************************************/
+.captcha {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 0;
+  padding: 10px 10px;
+  text-decoration: line-through;
+  color: black;
+  background-color: rgb(182, 178, 167);
+}
+.captcha__section input {
+  margin-top: 0 !important;
+  font-size: 14px !important;
+}
+.captcha__content {
+  width: 40%;
+}
+.restart a {
+  text-decoration: none;
+}
+
+.errmsg {
+  color: red;
+  font-size: 12px;
+  transition: 0.5s ease;
+}
+/*********************************************/
+/*               END CAPTCHA                 */
+/*********************************************/
+.invalid-feedback{
+  font-size: 10px !important;
+}
+.desa,.dusun,.rt,.rw,.kec{
+  font-size: 12px !important;
+  margin-top: 10px;
+}
+.slide-right{
+display: block;
+}

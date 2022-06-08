@@ -8,7 +8,7 @@ class MPelapor extends Model
 {
         protected $table = 'pelapor';
         
-        protected $primaryKey = 'nik';  
-        // protected $useAutoIncrement = true;  
-        protected $allowedFields = ['nik','nama_pelapor', 'alamat_pelapor','nomor_hubung'];  
+        protected $primaryKey = 'id_pelapor';  
+        protected $useAutoIncrement = true;  
+        protected $allowedFields = ['id_pelapor','nik','nama_pelapor','email', 'alamat_pelapor','nomor_hubung'];  
 }

@@ -1,19 +1,17 @@
 <?php
-
 namespace App\Controllers;
-
 use App\Models\MBenda;
 use App\Models\MLaporan;
 use App\Models\MPelapor;
-
+use App\Models\MPendata;
 
 class Umum extends BaseController
 {
     protected $MBenda;
     protected $MLaporan;
     protected $MPelapor;
-
-
+    protected $MPendata;
+    
 
     public function __construct(){
         $this->MBenda = new MBenda();
@@ -24,9 +22,10 @@ class Umum extends BaseController
         
         $this->MPelapor = new MPelapor();
         $this->db = \Config\Database::connect();
+
+        $this->MPendata = new MPendata();
+        $this->db = \Config\Database::connect();       
     }
-
-
     public function index()
     {
         $data = [
@@ -52,7 +51,6 @@ class Umum extends BaseController
     {
         $data = [
             'title' => 'Laporkan-MauLapor',
-            
         ];
         
         return view('public/laporkan',$data);
@@ -61,59 +59,71 @@ class Umum extends BaseController
     
     // tambah laporan
     public function tambahlaporan(){
-
+        // gambar1
         $image = $this->request->getFile('gambar');
         if ($image->getError() == 4) {
-            $namaImage = '';
+            $namaImage = null;
         } else {
             $namaImage = $image->getName();
             $image->move('assets/img/gambarlaporan');
         }
+        // gambar2
+        $image2 = $this->request->getFile('gambar2');
+        if ($image2->getError() == 4) {
+            $namaImage2 = null;
+        } else {
+            $namaImage2 = $image2->getName();
+            $image2->move('assets/img/gambarlaporan');
+        }
+        // gambar3
+        $image3 = $this->request->getFile('gambar3');
+        if ($image3->getError() == 4) {
+            $namaImage3 = null;
+        } else {
+            $namaImage3 = $image3->getName();
+            $image3->move('assets/img/gambarlaporan');
+        }
+        // gambar4
+        $image4 = $this->request->getFile('gambar4');
+        if ($image4->getError() == 4) {
+            $namaImage4 = null;
+        } else {
+            $namaImage4 = $image4->getName();
+            $image4->move('assets/img/gambarlaporan');
+        }
+
+        // $nama = $this->request->getVar('nama');
+        // dd($nama);
+
      
         $this->MPelapor->insert([
             'nama_pelapor'  => $this->request->getVar('nama'),
             'nik'  => $this->request->getVar('nik'),
-            'alamat_pelapor'  => $this->request->getVar('alamat'),
+            'email' => $this->request->getVar('email'),
             'nomor_hubung'  => $this->request->getVar('nomor'),
         ]);
+        $id_pelapor = $this->db->insertID();
+        // $email = $this->request->getVar('email');
+        // dd($email);
         $this->MLaporan->save([
-            'lokasi_penemuan' => $this->request->getVar('lokasi'),
-            'nik'  => $this->request->getVar('nik'),
+            // 'lokasi_penemuan' => $this->request->getVar('lokasi'),
+            'id_pelapor'  => $id_pelapor,
             'tanggal_penemuan' => $this->request->getVar('tanggal'),
             'status' => 'belum',
-            'gambar' => $namaImage
+            'dusun_penemuan' => $this->request->getVar('dusunPenemuan'),
+            'desa_penemuan' => $this->request->getVar('desaPenemuan'),
+            'rt_penemuan' => $this->request->getVar('rtPenemuan'),
+            'rw_penemuan' => $this->request->getVar('rwPenemuan'),
+            'kec_penemuan' => $this->request->getVar('kecPenemuan'),
+            'gambar' => $namaImage,
+            'gambar2' => $namaImage2,
+            'gambar3' => $namaImage3,
+            'gambar4' => $namaImage4
 
         ]);
-        $session = \Config\Services::session();
-        session()->setFlashdata('add-msg-barang', 'Data Barang berhasil ditambahkan.');
-        return redirect()-> to ('Umum/laporkan');
-    }
-    public function detail($id){
-
-        $benda = $this->MBenda->find($id);
         
-       $data=[
-           'benda' => $benda
-       ];
-        return view('/public/modal', $data);
-
-    }
-    public function details($id_benda){
-        // $jenisbenda = $this->MJenisBenda->findAll();
-        $query = $this->MBenda->tampildetail($id_benda);
-        $benda = $query->getFirstRow('array');
-       $data=[
-           'benda' => $benda,
-        //    'jenisbenda' => $jenisbenda,
-           'title' => 'Detail  | Admin-MauLapor'
-       ];
-       dd($data);
-        // return view('/Admin/ubahdata',$data);
-        //ke halaman admin uabahdata
-
-    }
-
-
-
-    
+        $session = \Config\Services::session();
+        session()->setFlashdata('pesan-laporan', 'Laporan berhasil dikirim');
+        return redirect()-> to ('Umum/laporkan');
+    } 
 }

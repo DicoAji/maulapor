@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MauLapor-lupapassword - Admin</title>
     <!-- favicon -->
-    <!-- favicon -->
     <link
       rel="shortcut icon"
-      href="/favicon.ico"
+      href="<?php base_url() ?>/favicon.ico"
       type="image/x-icon"
     />
     <!-- style.css -->
@@ -50,7 +49,7 @@
             <?= view('Myth\Auth\Views\_message_block') ?>
 
           </small>
-          <p>Masukkan email yag ada daftarkan untuk mendapat kode verivikasi</p>
+          <p>Masukkan email yag ada daftarkan untuk mendapat kode verifikasi</p>
 
           <!-- formulir -->
           <div class="pb50">

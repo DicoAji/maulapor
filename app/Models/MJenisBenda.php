@@ -10,8 +10,5 @@ class MJenisBenda extends Model
         
         protected $primaryKey = 'id_jenis_benda';  
         protected $useAutoIncrement = true;  
-        protected $allowedFields = ['id_jenis_benda','jenis_benda'];
-
-        
-        
+        protected $allowedFields = ['id_jenis_benda','jenis_benda'];   
 }
